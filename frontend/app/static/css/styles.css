@@ -1,0 +1,37 @@
+body {
+  background: #ffeeeef9;
+  background: linear-gradient(to right, #ddefbb71, #ddefbb71);
+}
+
+.main-page-img{
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../img/main-img.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 1rem 0;
+}
+
+.main-page-title {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.competency-report-title {
+  text-align: center;
+}
+
+.form-user p label {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+}
+
+.form-user p input,
+.form-user p textarea{
+  display: inline-block;
+  width: 200px;
+  margin-left: 10px;
+}

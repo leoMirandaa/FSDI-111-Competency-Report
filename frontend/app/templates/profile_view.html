@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title%} User Profile {% endblock title%}
+
+{% block content %}
+<h1>Profile view</h1>
+
+<div class="card text-bg-light shadow-sm" style=" text-align: center;">
+  <div class="card-body">
+    <h5 class="card-title">User #{{user["id"]}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{user["last_name"]}} {{user["first_name"]}}</h6>
+    <p class="card-text">{{ user["hobbies"]}}</p>
+
+    <button
+      type="button"
+      class="btn btn-secondary btn-sm"
+      data-bs-toggle="modal"
+      data-bs-target="#modal-default{{user['id']}}"
+    >
+      <ion-icon name="trash-outline"></ion-icon>
+    </button>
+
+    <a class="btn btn-primary btn-sm" href="{{ url_for('testing', user_id=user['id']) }}">
+      <ion-icon name="pencil-outline"></ion-icon>
+    </a>
+  </div>
+</div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-default{{user['id']}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm delete</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete <b>User #{{user['id']}}</b>?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary btn-sm" href="{{ url_for('delete_user', pk=user.id) }}">
+              Confirm
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}

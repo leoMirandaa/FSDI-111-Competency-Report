@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title%}Success!{%endblock title%}
+
+{%block content%}
+  {%block action_message %}
+    <h1>Success</h1>
+    <p>You Deleted the user!</p>
+    <p><a href="{{ url_for('user_list') }}">Click here</a> To go to User list</p>
+  {%endblock action_message %}
+{% endblock content %}
